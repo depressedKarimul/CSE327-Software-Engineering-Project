@@ -1,0 +1,31 @@
+#navigation{
+  background-color: black;
+  color: white;
+}
+.dropdown{
+  background-color: black;
+  color: white;
+}
+
+.button{
+  width: 100px;
+}
+
+.title{
+  font-family: "Playfair Display", serif;
+
+}
+
+.peregraph{
+  font-family: "Dancing Script", cursive;
+}
+
+#profile-card:hover {
+  transform: scale(1.05);
+  
+}
+
+#search-&bg{
+  background-image: url('../Images/bg.png');
+  background-size: cover;
+}
