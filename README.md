@@ -66,7 +66,15 @@ This module allows administrators and instructors to **edit course details** in 
 | POST   | `/update_course.php`    | Update course details |
 
 ## Screenshots
-![Course Edit Page](assets/images/course-edit.png)
+1. **Course Edit Page**
+   ![Course Edit Page](https://i.postimg.cc/d0rWbpKk/Screenshot-2025-03-27-114518.png)
+
+2. **Course Update Form with Filled Data**
+   ![Course Update Form](https://i.postimg.cc/Gt7zP1vN/Screenshot-2025-03-27-114817.png)
+
+3. **Course Edit Success Message**
+   ![Course Edit Success](https://i.postimg.cc/BQbmSX0G/Screenshot-2025-03-27-114958.png)
+
 
 ## Contribution Guidelines
 1. Fork the repository.
