@@ -66,25 +66,34 @@ This module allows administrators and instructors to **edit course details** in 
 | POST   | `/update_course.php`    | Update course details |
 
 ## Screenshots
-1. **Course Edit Page**
-   ![Course Edit Page](https://i.postimg.cc/d0rWbpKk/Screenshot-2025-03-27-114518.png)
+![Course Edit Page](assets/images/course-edit.png)
 
-2. **Course Update Form with Filled Data**
-   ![Course Update Form](https://i.postimg.cc/Gt7zP1vN/Screenshot-2025-03-27-114817.png)
-
-3. **Course Edit Success Message**
-   ![Course Edit Success](https://i.postimg.cc/BQbmSX0G/Screenshot-2025-03-27-114958.png)
-
+## Coding Standards
+To ensure code maintainability and readability, follow these standards:
+- **PHP**: Use PSR-12 coding standards.
+- **JavaScript**: Follow ES6+ best practices.
+- **CSS**: Use BEM methodology for class naming.
+- **Security**: Always sanitize inputs and use prepared statements.
+- **File Naming**: Use lowercase with underscores (e.g., `update_course.php`).
+- **Comments**: Add meaningful comments where necessary.
 
 ## Contribution Guidelines
 1. Fork the repository.
-2. Create a new branch: `git checkout -b feature-course-edit`.
-3. Commit changes: `git commit -m 'Added new course edit feature'`.
-4. Push changes: `git push origin feature-course-edit`.
+2. Switch to your branch:
+   ```bash
+   git checkout karimul
+   ```
+3. Make your changes and commit:
+   ```bash
+   git commit -m 'Updated course edit feature'
+   ```
+4. Push changes:
+   ```bash
+   git push origin karimul
+   ```
 5. Create a pull request.
 
 ## License
 This project is licensed under the **MIT License**.
 
 ---
-
