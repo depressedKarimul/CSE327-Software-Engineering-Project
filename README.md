@@ -66,7 +66,9 @@ This module allows administrators and instructors to **edit course details** in 
 | POST   | `/update_course.php`    | Update course details |
 
 ## Screenshots
-![Course Edit Page](assets/images/course-edit.png)
+<p align="center">
+  <img src="assets/images/course-edit.png" alt="Course Edit Page" width="600">
+</p>
 
 ## Coding Standards
 To ensure code maintainability and readability, follow these standards:
