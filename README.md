@@ -27,7 +27,7 @@ This module allows administrators and instructors to **edit course details** in 
 ## Installation & Setup
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/your-repo/skillpro.git
+   git clone https://github.com/depressedKarimul/CSE327-Software-Engineering-Project.git
    ```
 2. **Navigate to the course edit module**
    ```bash
@@ -38,7 +38,7 @@ This module allows administrators and instructors to **edit course details** in 
    define('DB_HOST', 'localhost');
    define('DB_USER', 'root');
    define('DB_PASS', '');
-   define('DB_NAME', 'skillpro_db');
+   define('DB_NAME', 'skillProDB');
    ```
 4. **Start a local server**
    ```bash
@@ -66,9 +66,7 @@ This module allows administrators and instructors to **edit course details** in 
 | POST   | `/update_course.php`    | Update course details |
 
 ## Screenshots
-<p align="center">
-  <img src="assets/images/course-edit.png" alt="Course Edit Page" width="600">
-</p>
+![Course Edit Page](assets/images/course-edit.png)
 
 ## Coding Standards
 To ensure code maintainability and readability, follow these standards:
