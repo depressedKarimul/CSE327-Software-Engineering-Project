@@ -136,7 +136,7 @@ $conn->close();
           </div>
           
           <div class="text-center">
-            <a href="../forget-password/Forgotten_password.php" class="text-blue-600 hover:underline">Forgotten password?</a>
+            <a href="../google-verification/sendotp.php" class="text-blue-600 hover:underline">Forgotten password?</a>
           </div>
           <hr class="my-4">
           <div class="text-center">
