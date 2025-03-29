@@ -134,8 +134,9 @@ $conn->close();
           <div>
             <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-md font-bold  hover:bg-black">Log in</button>
           </div>
+          
           <div class="text-center">
-            <a href="Forgotten_password.php" class="text-blue-600 hover:underline">Forgotten password?</a>
+            <a href="../forget-password/Forgotten_password.php" class="text-blue-600 hover:underline">Forgotten password?</a>
           </div>
           <hr class="my-4">
           <div class="text-center">
