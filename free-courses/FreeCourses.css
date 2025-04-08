@@ -1,8 +1,0 @@
-.mark{
-  background-color: rgb(20, 93, 93);
-  border-radius: 30px;
-}
-
-.highlight:hover{
-  transform: scale(1.05);
-}
