@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         header("Location: student.php");
                         exit();
                     case 'admin':
-                        header("Location: admin.php");
+                      header("Location: ../admin-dashboard/admin.php");
                         exit();
                     default:
                         $error = "Invalid role specified.";
