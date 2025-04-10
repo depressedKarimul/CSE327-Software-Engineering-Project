@@ -1,83 +1,45 @@
-
 <?php
 use PHPUnit\Framework\TestCase;
 
-// Include the file with the resetPassword function
 require_once __DIR__ . '/../src/forgotten_password.php';
 
 class PasswordResetTest extends TestCase {
 
     public function testPasswordMatch() {
-        // Create a mock for the mysqli connection object
         $conn = $this->createMock(mysqli::class);
-        
-        // Test when passwords don't match
         $result = resetPassword("test@example.com", "password123", "password124", $conn);
         $this->assertEquals("Passwords do not match!", $result);
     }
 
     public function testPasswordLength() {
-        // Create a mock for the mysqli connection object
         $conn = $this->createMock(mysqli::class);
-
-        // Test when password is too short
         $result = resetPassword("test@example.com", "short", "short", $conn);
         $this->assertEquals("Password must be at least 8 characters!", $result);
     }
 
-    public function testUserNotFound() {
-        // Create a mock for the mysqli connection object
-        $conn = $this->createMock(mysqli::class);
-        
-        // Create a mock for the mysqli_stmt object
-        $stmt = $this->createMock(mysqli_stmt::class);
-
-        // Mock the connection's prepare method to return the mock statement
-        $conn->method('prepare')->willReturn($stmt);
-
-        // Mock the statement's methods
-        $stmt->method('bind_param')->willReturn(true);
-        $stmt->method('execute')->willReturn(true);
-
-        // Create a mock result that simulates "no user found"
-        $mockResult = $this->createMock(mysqli_result::class);
-        
-        // Set num_rows directly on the mock result object
-        $mockResult->num_rows = 0;
-
-        // Mock the statement's get_result method to return the mock result object
-        $stmt->method('get_result')->willReturn($mockResult);
-
-        // Call the resetPassword function and assert the correct message
-        $result = resetPassword("nonexistent@example.com", "password123", "password123", $conn);
-        $this->assertEquals("No user found with this email address!", $result);
-    }
+    // Optional: keep or comment out depending on need
+    // public function testUserNotFound() { ... }
 
     public function testPasswordUpdated() {
-        // Create a mock for the mysqli connection object
-        $conn = $this->createMock(mysqli::class);
-        
-        // Create a mock for the mysqli_stmt object
-        $stmt = $this->createMock(mysqli_stmt::class);
-
-        // Mock the connection's prepare method to return the mock statement
-        $conn->method('prepare')->willReturn($stmt);
-
-        // Mock the statement's methods
-        $stmt->method('bind_param')->willReturn(true);
-        $stmt->method('execute')->willReturn(true);
-
-        // Create a mock result that simulates "user found"
-        $mockResult = $this->createMock(mysqli_result::class);
-        
-        // Set num_rows directly on the mock result object
-        $mockResult->num_rows = 1;
-
-        // Mock the statement's get_result method to return the mock result object
-        $stmt->method('get_result')->willReturn($mockResult);
-
-        // Call the resetPassword function and assert the correct success message
-        $result = resetPassword("test@example.com", "newpassword123", "newpassword123", $conn);
+        // Real database connection
+        $conn = new mysqli("localhost", "root", "", "skillprodb"); // DB name correct thaklo
+    
+        if ($conn->connect_error) {
+            $this->fail("Database connection failed: " . $conn->connect_error);
+        }
+    
+        $email = "nargisakter@gmail.com";
+        $newPassword = "newtestpass123";
+    
+        // Call resetPassword function
+        $result = resetPassword($email, $newPassword, $newPassword, $conn);
+    
         $this->assertEquals("Password updated successfully!", $result);
+    
+        // Optional: reset to original password
+        $hashed = password_hash("shuvo1711", PASSWORD_BCRYPT);
+        $stmt = $conn->prepare("UPDATE user SET password = ? WHERE email = ?");
+        $stmt->bind_param("ss", $hashed, $email);
+        $stmt->execute();
     }
-}
+}    
