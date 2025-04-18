@@ -16,7 +16,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Handle file upload
     $profilePic = "";
     if (isset($_FILES["profile_pic"]) && $_FILES["profile_pic"]["error"] == 0) {
-        $uploadDir = "C:/xampp/htdocs/cse311/images/"; // Ensure this folder exists
+        $uploadDir = "C:/xampp/htdocs/cse327/login-signup/Images/";
+ // Ensure this folder exists
         $fileName = basename($_FILES["profile_pic"]["name"]);
         $targetPath = $uploadDir . $fileName;
 

@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         header("Location: instructor.php");
                         exit();
                     case 'student':
-                        header("Location: student.php");
+                        header("Location: ../student-dashboard/student.php");
                         exit();
                     case 'admin':
                       header("Location: ../admin-dashboard/admin.php");
