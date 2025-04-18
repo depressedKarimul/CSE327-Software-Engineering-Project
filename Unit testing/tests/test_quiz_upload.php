@@ -11,7 +11,7 @@ echo "<h2>Unit Testing quiz_upload.php</h2>";
 // Test 1: Valid input
 echo "<h3>Test 1: Valid Input</h3>";
 $response = simulate_post([
-    'course_id' => 32,  // make sure this ID exists in your Course table
+    'course_id' => 32,   
     'total_questions' => 1,
     'passing_marks' => 10
 ]);
