@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Admin Instructor Approval Page
  *
@@ -108,9 +109,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <?php include('../Styles/head_content.php') ?>
 </head>
+
 <body>
     <main class="min-h-screen p-5">
         <h2 class="text-center text-4xl text-white bg-[#283747] p-5 font-extrabold rounded-md">
@@ -121,13 +124,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <!-- Display success or error messages -->
             <?php if (isset($_SESSION['message'])): ?>
                 <div class="bg-green-100 text-green-700 p-4 rounded mb-5">
-                    <?= htmlspecialchars($_SESSION['message']); unset($_SESSION['message']); ?>
+                    <?= htmlspecialchars($_SESSION['message']);
+                    unset($_SESSION['message']); ?>
                 </div>
             <?php endif; ?>
 
             <?php if (isset($_SESSION['error'])): ?>
                 <div class="bg-red-100 text-red-700 p-4 rounded mb-5">
-                    <?= htmlspecialchars($_SESSION['error']); unset($_SESSION['error']); ?>
+                    <?= htmlspecialchars($_SESSION['error']);
+                    unset($_SESSION['error']); ?>
                 </div>
             <?php endif; ?>
 
@@ -146,42 +151,53 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     <?php while ($row = $result->fetch_assoc()): ?>
                         <div class="bg-[#283747] shadow-md rounded-lg p-5">
-                            <div class="flex items-center space-x-4">
-                                <img 
-                                    src="<?= htmlspecialchars($row['profile_pic']) ?>" 
-                                    alt="Profile Picture" 
-                                    class="w-20 h-20 rounded-full border-2 border-blue-500">
-                                <div>
-                                    <h3 class="text-xl font-bold"><?= htmlspecialchars($row['firstName'] . ' ' . $row['lastName']) ?></h3>
-                                    <p class="text-sm text-white">Email: <?= htmlspecialchars($row['email']) ?></p>
-                                    <p class="text-sm text-white">Bio: <?= htmlspecialchars($row['bio']) ?></p>
-                                </div>
-                            </div>
-                            <div class="mt-4 flex gap-4">
-                                <!-- Approve Form -->
-                                <form action="approve_request.php" method="POST">
-                                    <input type="hidden" name="user_id" value="<?= $row['user_id'] ?>">
-                                    <button 
-                                        type="submit" 
-                                        name="action" 
-                                        value="approve" 
-                                        class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
-                                        Approve
-                                    </button>
-                                </form>
-                                <!-- Reject Form -->
-                                <form action="approve_request.php" method="POST">
-                                    <input type="hidden" name="user_id" value="<?= $row['user_id'] ?>">
-                                    <button 
-                                        type="submit" 
-                                        name="action" 
-                                        value="reject" 
-                                        class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">
-                                        Reject
-                                    </button>
-                                </form>
-                            </div>
-                        </div>
+    <div class="flex items-center space-x-4">
+
+        <img 
+            src="/<?= htmlspecialchars($row['profile_pic']) ?>" 
+            alt="Profile Picture"
+            class="w-20 h-20 rounded-full border-2 border-blue-500">
+
+        <div>
+            <h3 class="text-xl font-bold text-white">
+                <?= htmlspecialchars($row['firstName'] . ' ' . $row['lastName']) ?>
+            </h3>
+            <p class="text-sm text-white">
+                Email: <?= htmlspecialchars($row['email']) ?>
+            </p>
+            <p class="text-sm text-white">
+                Bio: <?= htmlspecialchars($row['bio']) ?>
+            </p>
+        </div>
+    </div>
+
+    <div class="mt-4 flex gap-4">
+        <!-- Approve Form -->
+        <form action="approve_request.php" method="POST">
+            <input type="hidden" name="user_id" value="<?= $row['user_id'] ?>">
+            <button
+                type="submit"
+                name="action"
+                value="approve"
+                class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+                Approve
+            </button>
+        </form>
+
+        <!-- Reject Form -->
+        <form action="approve_request.php" method="POST">
+            <input type="hidden" name="user_id" value="<?= $row['user_id'] ?>">
+            <button
+                type="submit"
+                name="action"
+                value="reject"
+                class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">
+                Reject
+            </button>
+        </form>
+    </div>
+</div>
+
                     <?php endwhile; ?>
                 </div>
             <?php endif; ?>
@@ -190,4 +206,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
     </main>
 </body>
+
 </html>
