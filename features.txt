@@ -1,0 +1,31 @@
+1) Profile Update/Delete - Functional Requirements
+
+As a user
+I want to update or delete my profile
+So that I can modify my personal information or remove my account if needed.
+
+Confirmation Criteria:
+    
+The system shall allow users (students, instructors, and admins) to update their personal details such as name, email, phone number, profile picture, and password.
+Users shall be able to change their profile picture by uploading a new image.
+Users shall be able to delete their account permanently if they no longer wish to use the platform.
+Before deletion, the system shall show a confirmation message warning that all user data will be lost.
+Admins shall have the authority to update or delete an instructor or student’s profile if necessary.
+If a user deletes their account, all associated data (such as course enrollments, quiz results, and chat messages) shall be removed or anonymized.
+The system shall notify the user via email once their account is successfully deleted.
+ 
+2) Search - Functional Requirements
+
+As a user
+I want to search for courses, instructors, and students
+So that I can quickly find relevant information without manually browsing through the platform.
+
+Confirmation Criteria:
+    
+The system shall provide a search bar on the homepage and dashboard.
+Users shall be able to search for courses using keywords related to the course title, description, or category.
+Students shall be able to search for instructors by name, expertise, or the courses they teach.
+Instructors shall be able to search for enrolled students in their courses.
+Admins shall be able to search for all users (students, instructors) and courses within the system.
+The search results shall be displayed in a structured format, including names, descriptions, and relevant details.
+The system shall highlight the searched keyword in the results to improve visibility.
