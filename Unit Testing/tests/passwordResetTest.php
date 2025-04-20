@@ -1,7 +1,6 @@
 <?php
 use PHPUnit\Framework\TestCase;
 
-// Include the file that contains the resetPassword function
 require_once __DIR__ . '/../src/forgotten_password.php';
 
 class PasswordResetTest extends TestCase {
@@ -20,8 +19,7 @@ class PasswordResetTest extends TestCase {
         $this->assertEquals("Password must be at least 8 characters!", $result);
     }
 
-    // Optional: You can add this test to check behavior when user is not found
-    // public function testUserNotFound() { ... }
+   
 
     // Test case: Password successfully updated in real database
     public function testPasswordUpdated() {
@@ -42,7 +40,6 @@ class PasswordResetTest extends TestCase {
         // Assert expected success message
         $this->assertEquals("Password updated successfully!", $result);
 
-        // Optional: Revert password back to original for test consistency
         $hashed = password_hash("shuvo1711", PASSWORD_BCRYPT);
         $stmt = $conn->prepare("UPDATE user SET password = ? WHERE email = ?");
         $stmt->bind_param("ss", $hashed, $email);
